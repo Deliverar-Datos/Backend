@@ -11,18 +11,7 @@ jobs:
     runs-on: ubuntu-latest # El runner de GitHub Actions
 
     steps:
-      - name: Imprimir variables de conexión SSH (solo para depuración)
-        run: |
-          echo "Host: ${{ secrets.SSH_HOST_BACKEND }}"
-          echo "Username: ${{ secrets.SSH_USERNAME }}"
-          # Nota: GitHub Action automáticamente censurará la clave privada en los logs.
-          echo "Private Key (censurada en logs): ${{ secrets.SSH_PRIVATE_KEY }}"
-          env:
-          # Puedes pasar los secretos como variables de entorno al paso si lo necesitas para un script
-          SSH_HOST_BACKEND: ${{ secrets.SSH_HOST_BACKEND }}
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          # --------------------------------------------------
+    
       - name: Execute Deploy Commands on EC2
         uses: appleboy/ssh-action@v1.0.0 # <--- ¡Esta acción es para EJECUTAR COMANDOS SSH!
         with:
