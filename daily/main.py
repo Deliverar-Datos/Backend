@@ -7,7 +7,7 @@ from pyspark.sql.functions import (
 )
 import boto3
 
-from db_utils import write_to_db, get_postgres_connection, get_ultima_fecha_procesada, filtrar_nuevos
+from daily.db_utils import write_to_db, get_postgres_connection, get_ultima_fecha_procesada, filtrar_nuevos
 from spark import spark
 
 conn = get_postgres_connection()
